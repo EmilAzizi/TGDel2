@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add a new attraction</title>
+</head>
+<body>
+<form action="/Tivoli/Add" method="post" th:object="${attraction}">
+  <p>
+    <label>Name:</label>
+    <input name="name" type="text" th:field="*{name}"/>
+  </p>
+  <p>
+    <label>Description:</label>
+    <input name="description" type="text" th:field="*{description}"/>
+  </p>
+  <p>
+    <button type="submit">Add attraction</button>
+  </p>
+</form>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+</head>
+<body>
+<h1>Welcome to Tivoli, here are the attractions:</h1>
+<ul>
+    <li th:each="attraction : ${attraction}">
+        <p th:text="'Name: ' + ${attraction.name}"></p>
+        <p th:text="'Description: ' + ${attraction.description}"></p>
+        <form th:action="@{'/Tivoli/' + ${attraction.ID} + '/Update'}" method="get">
+            <button type="submit">Update</button>
+        </form>
+        <form th:action="@{'/Tivoli/' + ${attraction.ID} + '/Delete'}" method="post">
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+    <a th:href="@{'/Tivoli/Add'}">
+        <button type="button">Add new attraction</button>
+    </a>
+</ul>
+
+<!--<ul>-->
+<!--    <li th:each="attraction : ${attraction}">-->
+<!--        <p th:text="'Name: ' + ${attraction.name}"></p>-->
+<!--        <p th:text="'Description: ' + ${attraction.description}"></p>-->
+<!--        <form th:action="@{'/Tivoli/' + ${attraction.ID} + '/Update'}" method="get">-->
+<!--            <input type="hidden" name="attractionId" th:value="${attraction.ID}">-->
+<!--            <a th:href="@{'Tivoli/Update'}">-->
+<!--                <button type="submit">Update attraction</button>-->
+<!--            </a>-->
+<!--        </form>-->
+<!--    </li>-->
+<!--</ul>-->
+</body>
+</html>

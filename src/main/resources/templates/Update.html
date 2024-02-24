@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Attraction</title>
+</head>
+<body>
+<form action="/Tivoli/Update" method="post" th:object="${attraction}">
+    <input type="hidden" name="ID" th:value="${attraction.ID}">
+    <p>
+        <label>Name:</label>
+        <input name="name" type="text" th:value="${attraction.name}"/>
+    </p>
+    <p>
+        <label>Description:</label>
+        <input name="description" type="text" th:value="${attraction.description}"/>
+    </p>
+    <p>
+        <button type="submit">Update attraction</button>
+        <a th:href="@{'/Tivoli'}">
+            <button type="button">Cancel</button>
+        </a>
+    </p>
+</form>
+
+<!--<form action="/Tivoli/Update" method="post" th:object="${attraction}">-->
+<!--    <p>-->
+<!--        <label>Navn:</label>-->
+<!--        <input name="name" type="text" th:value="${attraction.name}"/>-->
+<!--    </p>-->
+<!--    <p>-->
+<!--        <label>price:</label>-->
+<!--        <input name="description" type="text" th:value="${attraction.description}"/>-->
+<!--    </p>-->
+<!--    <p>-->
+<!--        <button type="submit">Opdatér produkt</button>-->
+<!--        <a th:href="@{'/Tivoli'}">-->
+<!--            <button type="button">Cancel</button>-->
+<!--        </a>-->
+<!--    </p>-->
+<!--</form>-->
+</body>
+</html>
