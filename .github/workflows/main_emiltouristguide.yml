@@ -50,4 +50,4 @@ jobs:
           app-name: 'EmilTouristGuide'
           slot-name: 'Production'
           package: '*.jar'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_AF33D8E7F10D44E49114AA3C073DB5CF }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_CD00F9A166E9400E9FFE13F9247ADB52 }}
