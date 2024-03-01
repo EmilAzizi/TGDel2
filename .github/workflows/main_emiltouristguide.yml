@@ -36,22 +36,13 @@ jobs:
     environment:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-    permissions:
-      id-token: write #This is required for requesting the JWT
-  
+      
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v3
         with:
           name: java-app
       
-      - name: Login to Azure
-        uses: azure/login@v1
-        with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_D7687875A595483BA749400EB3822DA5 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_7ADD1E5EB9BF4097B2453E2CB1A45B5D }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_89AD498C89BA4F899C1D870AD05972D3 }}
-
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
@@ -59,4 +50,4 @@ jobs:
           app-name: 'EmilTouristGuide'
           slot-name: 'Production'
           package: '*.jar'
-          
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_AF33D8E7F10D44E49114AA3C073DB5CF }}
